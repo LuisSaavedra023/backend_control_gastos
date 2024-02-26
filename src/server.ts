@@ -2,6 +2,7 @@ import express, { Router } from 'express';
 import router_auth from './routes/api/auth';
 
 const app = express();
+app.use(express.json());
 
 const PORT = 3000;
 
@@ -13,7 +14,6 @@ const routes: {url: string, router: Router}[] = [
 
 routes.forEach(({url, router}) => {
     app.use(url, router);
-    app.use(express.json());
 });
 
 app.listen(PORT, () => {

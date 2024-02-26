@@ -6,26 +6,45 @@ router.get("/", (req: Request, res: Response) => {
     res.send("control gastos")
 });
 
-router.get("/data/", (req: Request, res: Response) => {
+router.get("/get/users", (req: Request, res: Response) => {
     res.json([
         {
             id: 1,
-            nombre: "sara"
+            nombre: "sara",
+            username: "sara023",
+            password: "123"
         
         },
         {
             id: 2,
-            nombre: "marcelo"
+            nombre: "marcelo",
+            username: "marcelo023",
+            password: "123"
         },
         {
             id: 3,
-            nombre: "guaton beto"
+            nombre: "beto",
+            username: "beto023",
+            password: "123"
         },
         {
             id: 4,
-            nombre: "luly"
+            nombre: "luly",
+            username: "luly023",
+            password: "123"
         },
     ])
 });
 
+router.post("/login", (req: Request, res: Response) => {
+    const {username, password} = req.body;
+
+    res.json({
+        mensaje: "datos recibidos exitosamente",
+        username,
+        password
+    });
+
+    console.log(username, password)
+});
 export default router;
